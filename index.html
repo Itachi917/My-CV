@@ -20,7 +20,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
-        .container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 850px; margin: 40px auto; padding: 0 20px; position: relative; }
 
         /* Header */
         header {
@@ -31,10 +31,28 @@
             border-radius: 16px;
             color: white;
             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            position: relative;
         }
         h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
         .tagline { font-size: 1.1rem; color: #94a3b8; margin-bottom: 25px; }
         
+        /* Language Button */
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .lang-btn:hover { background: rgba(255, 255, 255, 0.3); }
+
         .contact-pills { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .pill {
             background: rgba(255, 255, 255, 0.1); padding: 8px 16px; border-radius: 50px;
@@ -68,6 +86,9 @@
 
         footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.85rem; }
         
+        /* Language Toggle Logic */
+        .fr { display: none; } /* Hide French by default */
+        
         @media (max-width: 600px) { h1 { font-size: 2rem; } .header-row { flex-direction: column; } .date { margin-top: 5px; } }
     </style>
 </head>
@@ -76,8 +97,14 @@
     <div class="container">
         
         <header>
+            <button class="lang-btn" onclick="toggleLanguage()">
+                <i class="fas fa-globe"></i> <span id="lang-text">Français</span>
+            </button>
+
             <h1>Yousuf Al Sulti</h1>
-            <div class="tagline">IT Diploma Student | Full Stack Developer</div>
+            
+            <div class="tagline en">IT Diploma Student | Full Stack Developer</div>
+            <div class="tagline fr">Étudiant en Diplôme TI | Développeur Full Stack</div>
             
             <div class="contact-pills">
                 <a href="mailto:241579@students.su.edu.om" class="pill">
@@ -93,114 +120,176 @@
         </header>
 
         <section>
-            <h2><i class="fas fa-user-circle"></i> Objective</h2>
+            <h2 class="en"><i class="fas fa-user-circle"></i> Objective</h2>
+            <h2 class="fr"><i class="fas fa-user-circle"></i> Objectif</h2>
             <div class="card">
-                <p style="margin-bottom: 0;">
+                <p class="en" style="margin-bottom: 0;">
                     High-achieving Information Technology student (GPA 3.85) at Sohar University with a passion for software engineering and network architecture. Experienced in full-stack web development and network simulation. Eager to leverage strong academic performance and collaborative project experience in a challenging research internship environment.
+                </p>
+                <p class="fr" style="margin-bottom: 0;">
+                    Étudiant performant en Technologies de l'Information (GPA 3.85) à l'Université de Sohar, passionné par le génie logiciel et l'architecture réseau. Expérimenté en développement web full-stack et simulation de réseaux. Désireux de mettre à profit ses solides résultats académiques et son expérience de projets collaboratifs dans un environnement de recherche stimulant.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <h2 class="en"><i class="fas fa-graduation-cap"></i> Education</h2>
+            <h2 class="fr"><i class="fas fa-graduation-cap"></i> Éducation</h2>
             
             <div class="card">
                 <div class="header-row">
-                    <div class="title">Diploma in Information Technology</div>
-                    <div class="date">Expected 2027</div>
+                    <div class="title en">Diploma in Information Technology</div>
+                    <div class="title fr">Diplôme en Technologies de l'Information</div>
+                    
+                    <div class="date en">Expected 2027</div>
+                    <div class="date fr">Prévu pour 2027</div>
                 </div>
-                <div class="subtitle">Sohar University, Oman</div>
-                <ul class="styled-list">
+                <div class="subtitle en">Sohar University, Oman</div>
+                <div class="subtitle fr">Université de Sohar, Oman</div>
+
+                <ul class="styled-list en">
                     <li><strong>Cumulative GPA:</strong> 3.85 / 4.00</li>
                     <li><strong>Future Plan:</strong> Continuing to Bachelor's Degree (Expected 2029)</li>
                 </ul>
+                <ul class="styled-list fr">
+                    <li><strong>Moyenne (GPA):</strong> 3.85 / 4.00</li>
+                    <li><strong>Plan Futur:</strong> Poursuite vers le Bachelor (Prévu 2029)</li>
+                </ul>
                 
                 <div style="margin-top: 20px; background: #f8fafc; padding: 15px; border-radius: 8px;">
-                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--primary);">Key Coursework:</div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div class="en" style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--primary);">Key Coursework:</div>
+                    <div class="fr" style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--primary);">Cours Clés:</div>
+                    
+                    <div class="en" style="display: flex; flex-wrap: wrap; gap: 8px;">
                         <span class="date">Algorithms & Data Structures</span>
                         <span class="date">Operating Systems & Security</span>
                         <span class="date">Web Information Systems</span>
                         <span class="date">Database Systems</span>
+                    </div>
+                    <div class="fr" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="date">Algorithmes et Structures de Données</span>
+                        <span class="date">Systèmes d'Exploitation & Sécurité</span>
+                        <span class="date">Systèmes d'Information Web</span>
+                        <span class="date">Systèmes de Bases de Données</span>
                     </div>
                 </div>
             </div>
         </section>
         
         <section>
-            <h2><i class="fas fa-certificate"></i> Certifications & Workshops</h2>
+            <h2 class="en"><i class="fas fa-certificate"></i> Certifications & Workshops</h2>
+            <h2 class="fr"><i class="fas fa-certificate"></i> Certifications & Ateliers</h2>
             
             <div class="card">
                 <div class="header-row">
                     <div class="title">Cisco Certified Network Associate (CCNA)</div>
-                    <div class="date">Issued by Cisco</div>
+                    <div class="date en">Issued by Cisco</div>
+                    <div class="date fr">Délivré par Cisco</div>
                 </div>
-                <p style="margin-bottom:0; color: #64748b;">
+                <p class="en" style="margin-bottom:0; color: #64748b;">
                     Demonstrated proficiency in network fundamentals, IP connectivity, and security fundamentals.
+                </p>
+                <p class="fr" style="margin-bottom:0; color: #64748b;">
+                    Maîtrise démontrée des fondamentaux du réseau, de la connectivité IP et de la sécurité.
                 </p>
             </div>
 
             <div class="card">
                 <div class="header-row">
-                    <div class="title">Fundamentals and Simulator of Blockchain Technology</div>
-                    <div class="date">Webinar</div>
+                    <div class="title en">Fundamentals and Simulator of Blockchain Technology</div>
+                    <div class="title fr">Fondamentaux et Simulateur de Technologie Blockchain</div>
+                    <div class="date en">Webinar</div>
+                    <div class="date fr">Webinaire</div>
                 </div>
-                <p style="margin-bottom:0; color: #64748b;">
+                <p class="en" style="margin-bottom:0; color: #64748b;">
                     Certificate of Attendance for exploring blockchain architecture and simulation tools.
+                </p>
+                <p class="fr" style="margin-bottom:0; color: #64748b;">
+                    Certificat de participation pour l'exploration de l'architecture blockchain et des outils de simulation.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-code"></i> Projects & Research</h2>
+            <h2 class="en"><i class="fas fa-code"></i> Projects & Research</h2>
+            <h2 class="fr"><i class="fas fa-code"></i> Projets & Recherche</h2>
             
             <div class="card">
                 <div class="header-row">
-                    <div class="title">Bilingual E-Learning Platform</div>
-                    <div class="date">Personal Project</div>
+                    <div class="title en">Bilingual E-Learning Platform</div>
+                    <div class="title fr">Plateforme E-Learning Bilingue</div>
+                    <div class="date en">Personal Project</div>
+                    <div class="date fr">Projet Personnel</div>
                 </div>
-                <div class="subtitle">Full Stack Web Application</div>
-                <p>
+                <div class="subtitle en">Full Stack Web Application</div>
+                <div class="subtitle fr">Application Web Full Stack</div>
+                
+                <p class="en">
                     Architecting a student-centric platform to facilitate bilingual education, solving accessibility challenges for non-native English speakers.
                 </p>
-                <ul class="styled-list">
+                <p class="fr">
+                    Conception d'une plateforme centrée sur l'étudiant pour faciliter l'éducation bilingue et résoudre les problèmes d'accessibilité.
+                </p>
+
+                <ul class="styled-list en">
                     <li><strong>Tech Stack:</strong> Next.js, Prisma ORM, PostgreSQL.</li>
                     <li><strong>Focus:</strong> Server-side rendering, scalable database schema, and responsive UI.</li>
+                </ul>
+                <ul class="styled-list fr">
+                    <li><strong>Stack Technique:</strong> Next.js, Prisma ORM, PostgreSQL.</li>
+                    <li><strong>Focus:</strong> Rendu côté serveur, schéma de base de données évolutif et interface responsive.</li>
                 </ul>
             </div>
 
             <div class="card">
                 <div class="header-row">
-                    <div class="title">University Collaborative Projects</div>
-                    <div class="date">Academic Coursework</div>
+                    <div class="title en">University Collaborative Projects</div>
+                    <div class="title fr">Projets Collaboratifs Universitaires</div>
+                    <div class="date en">Academic Coursework</div>
+                    <div class="date fr">Cursus Académique</div>
                 </div>
-                <div class="subtitle">Team-based Technical Implementation</div>
-                <p>
+                <div class="subtitle en">Team-based Technical Implementation</div>
+                <div class="subtitle fr">Mise en œuvre technique en équipe</div>
+                
+                <p class="en">
                     Successfully collaborated in diverse teams to deliver technical solutions across networking, software design, and programming.
                 </p>
-                <ul class="styled-list">
+                <p class="fr">
+                    Collaboration réussie au sein d'équipes diverses pour fournir des solutions techniques en réseau, conception logicielle et programmation.
+                </p>
+
+                <ul class="styled-list en">
                     <li><strong>Network Simulation:</strong> Designed and simulated complex network topologies using <strong>Cisco Packet Tracer</strong> and <strong>Huawei eNSP</strong>.</li>
                     <li><strong>Software Architecture:</strong> Created detailed UML diagrams and system models using <strong>StarUML</strong>.</li>
                     <li><strong>Web Development:</strong> Built a responsive website using HTML/CSS with custom animations.</li>
                     <li><strong>Programming:</strong> Developed object-oriented applications using <strong>Java</strong>.</li>
                 </ul>
+                <ul class="styled-list fr">
+                    <li><strong>Simulation Réseau:</strong> Conception et simulation de topologies réseau complexes via <strong>Cisco Packet Tracer</strong> et <strong>Huawei eNSP</strong>.</li>
+                    <li><strong>Architecture Logicielle:</strong> Création de diagrammes UML détaillés et modèles système via <strong>StarUML</strong>.</li>
+                    <li><strong>Développement Web:</strong> Création d'un site responsive en HTML/CSS avec animations personnalisées.</li>
+                    <li><strong>Programmation:</strong> Développement d'applications orientées objet en <strong>Java</strong>.</li>
+                </ul>
             </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-laptop-code"></i> Skills & Tools</h2>
+            <h2 class="en"><i class="fas fa-laptop-code"></i> Skills & Tools</h2>
+            <h2 class="fr"><i class="fas fa-laptop-code"></i> Compétences & Outils</h2>
             <div class="skills-container">
                 <div class="card skill-group" style="margin-bottom: 0;">
-                    <h3>Development</h3>
+                    <h3 class="en">Development</h3>
+                    <h3 class="fr">Développement</h3>
                     <ul class="styled-list">
                         <li>JavaScript / TypeScript</li>
                         <li>Next.js & React</li>
                         <li>Java & OOP</li>
-                        <li>HTML5 & CSS3</li>
+                        <li><strong>SQL & Database Management</strong></li> <li>HTML5 & CSS3</li>
                     </ul>
                 </div>
                 <div class="card skill-group" style="margin-bottom: 0;">
-                    <h3>Networking & Systems</h3>
+                    <h3 class="en">Networking & Systems</h3>
+                    <h3 class="fr">Réseaux & Systèmes</h3>
                     <ul class="styled-list">
                         <li>Cisco Packet Tracer</li>
                         <li>Huawei eNSP</li>
@@ -209,11 +298,17 @@
                     </ul>
                 </div>
                 <div class="card skill-group" style="margin-bottom: 0;">
-                    <h3>Languages</h3>
-                    <ul class="styled-list">
+                    <h3 class="en">Languages</h3>
+                    <h3 class="fr">Langues</h3>
+                    <ul class="styled-list en">
                         <li><strong>Arabic:</strong> Native</li>
                         <li><strong>English:</strong> Professional</li>
                         <li><strong>French:</strong> Beginner</li>
+                    </ul>
+                    <ul class="styled-list fr">
+                        <li><strong>Arabe:</strong> Langue maternelle</li>
+                        <li><strong>Anglais:</strong> Professionnel</li>
+                        <li><strong>Français:</strong> Débutant</li>
                     </ul>
                 </div>
             </div>
@@ -224,5 +319,34 @@
         </footer>
 
     </div>
+
+    <script>
+        function toggleLanguage() {
+            const enElements = document.querySelectorAll('.en');
+            const frElements = document.querySelectorAll('.fr');
+            const btnText = document.getElementById('lang-text');
+            
+            // Check current state (if first EN element is visible)
+            const isEnglish = enElements[0].style.display !== 'none';
+
+            if (isEnglish) {
+                // Switch to French
+                enElements.forEach(el => el.style.display = 'none');
+                frElements.forEach(el => el.style.display = 'block');
+                // Fix specific display types if needed (like flex/inline)
+                document.querySelectorAll('span.fr').forEach(el => el.style.display = 'inline');
+                
+                btnText.textContent = "English";
+            } else {
+                // Switch to English
+                frElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                // Fix specific display types
+                document.querySelectorAll('span.en').forEach(el => el.style.display = 'inline');
+                
+                btnText.textContent = "Français";
+            }
+        }
+    </script>
 </body>
 </html>
