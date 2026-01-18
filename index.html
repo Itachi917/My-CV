@@ -3,102 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | IT Student & Developer</title>
+    <title>Yousuf Al Sulti | IT Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --text-color: #333;
-            --bg-color: #f4f7f6;
-            --white: #ffffff;
+            --primary: #1e293b;      /* Slate 800 */
+            --secondary: #3b82f6;    /* Blue 500 */
+            --accent: #0f172a;       /* Slate 900 */
+            --bg: #f8fafc;           /* Slate 50 */
+            --card-bg: #ffffff;
+            --text-main: #334155;    /* Slate 700 */
+            --text-light: #64748b;   /* Slate 500 */
+            --highlight-bg: #eff6ff; /* Blue 50 */
+            --border: #e2e8f0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Container */
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        /* Header */
+        /* --- Hero Section --- */
         header {
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 16px;
+            color: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: var(--primary-color);
             font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
         .tagline {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-weight: 500;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-bottom: 25px;
         }
 
-        .contact-info a {
+        .contact-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
             text-decoration: none;
-            color: var(--text-color);
-            margin: 0 10px;
+            color: white;
             font-size: 0.9rem;
-            transition: color 0.3s;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .contact-info a:hover {
-            color: var(--accent-color);
+        .pill:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
-        /* Sections */
+        /* --- General Layout --- */
         section {
-            background: var(--white);
-            margin-bottom: 20px;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 700;
             margin-bottom: 20px;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Items */
-        .item {
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* --- Cards --- */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
             margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-color: #cbd5e1;
         }
 
-        .item-header {
+        /* Special Featured Card for CERN */
+        .card.featured {
+            background: var(--highlight-bg);
+            border: 1px solid #bfdbfe;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card.featured::before {
+            content: "FEATURED";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--secondary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .header-row {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -106,59 +164,88 @@
             flex-wrap: wrap;
         }
 
-        .item-title {
-            font-weight: bold;
+        .title {
+            font-weight: 700;
             font-size: 1.1rem;
+            color: var(--primary);
         }
 
-        .item-subtitle {
-            font-style: italic;
-            color: #666;
+        .date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-family: monospace;
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
-        .item-date {
-            font-size: 0.9rem;
-            color: #888;
+        .subtitle {
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
         }
 
-        /* Lists */
-        ul.skill-list {
+        p {
+            color: var(--text-main);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* --- Lists & Skills --- */
+        ul.styled-list {
             list-style: none;
-            margin-top: 10px;
+            padding-left: 5px;
         }
 
-        ul.skill-list li::before {
-            content: "•";
-            color: var(--accent-color);
+        ul.styled-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        ul.styled-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
             font-weight: bold;
-            display: inline-block; 
-            width: 1em;
-            margin-left: -1em;
-        }
-        
-        ul.skill-list li {
-            padding-left: 1em;
-            margin-bottom: 5px;
         }
 
-        /* Skills Grid */
-        .skills-grid {
+        .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
 
-        .skill-category h3 {
-            font-size: 1rem;
+        .skill-group h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
             margin-bottom: 10px;
-            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 3px;
         }
 
+        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 20px;
-            color: #888;
-            font-size: 0.9rem;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 0 15px; }
+            .header-row { flex-direction: column; }
+            .date { margin-top: 5px; }
         }
     </style>
 </head>
@@ -167,119 +254,116 @@
     <div class="container">
         
         <header>
-            <h1>[Your Name]</h1>
-            <div class="tagline">IT Student | Full Stack Developer</div>
-            <div class="contact-info">
-                <a href="mailto:your.email@example.com">Email</a> |
-                <a href="https://github.com/yourusername">GitHub</a> |
-                <a href="#">LinkedIn</a>
+            <h1>Yousuf Al Sulti</h1>
+            <div class="tagline">IT Student | Next.js Developer | CERN Summer Student 2026</div>
+            
+            <div class="contact-pills">
+                <a href="mailto:241579@students.su.edu.om" class="pill" title="Academic Email">
+                    <i class="fas fa-university"></i> 241579@students.su.edu.om
+                </a>
+                <a href="mailto:asm977661@gmail.com" class="pill" title="Personal Email">
+                    <i class="fas fa-envelope"></i> asm977661@gmail.com
+                </a>
+                <a href="#" class="pill">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
             </div>
         </header>
 
         <section>
-            <h2>Profile</h2>
-            <p>
-                Dedicated Information Technology student at Sohar University with a current <strong>GPA of 3.85</strong>. 
-                Passionate about web development, specifically within the <strong>Next.js</strong> ecosystem. 
-                Currently preparing for upcoming participation in the CERN Summer Student Programme after being selected by the university.
-            </p>
-        </section>
-
-        <section>
-            <h2>Upcoming Participation</h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">CERN Summer Student Programme 2026</span>
-                    <span class="item-date">Summer 2026</span>
-                </div>
-                <div class="item-subtitle">Selected Representative</div>
-                <p>
-                    Chosen by Sohar University to participate in the upcoming summer program at CERN (Geneva), focusing on IT and scientific computing.
+            <h2><i class="fas fa-user-circle"></i> Professional Profile</h2>
+            <div class="card">
+                <p style="margin-bottom: 0;">
+                    High-achieving Information Technology student at Sohar University (GPA 3.85) with a strong foundation in full-stack development. Selected to represent the university at CERN in 2026. Passionate about building scalable web applications using the Next.js ecosystem and committed to continuous learning in security and systems architecture.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>Education</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Diploma in Information Technology</span>
-                    <span class="item-date">Expected 2027</span>
+            <h2><i class="fas fa-star"></i> Upcoming Participation</h2>
+            <div class="card featured">
+                <div class="header-row">
+                    <div class="title">CERN Summer Student Programme</div>
+                    <div class="date">Geneva | Summer 2026</div>
                 </div>
-                <div class="item-subtitle">Sohar University, Oman</div>
-                <p><strong>GPA:</strong> 3.85 / 4.00</p>
-                <p style="margin-top: 5px; color: #555;">
-                    <em>Plan to pursue Bachelor's Degree (Expected Graduation: 2029)</em>
+                <div class="subtitle">Selected University Representative</div>
+                <p>
+                    Chosen through a competitive selection process at Sohar University to join the world's leading particle physics laboratory. The program involves working on advanced IT projects and attending lectures from global experts in science and computing.
                 </p>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            
+            <div class="card">
+                <div class="header-row">
+                    <div class="title">Diploma in Information Technology</div>
+                    <div class="date">Exp. 2027</div>
+                </div>
+                <div class="subtitle">Sohar University, Oman</div>
+                <ul class="styled-list">
+                    <li><strong>Cumulative GPA:</strong> 3.85 / 4.00</li>
+                    <li><strong>Academic Trajectory:</strong> Intending to pursue Bachelor's Degree (Exp. 2029)</li>
+                </ul>
                 
-                <div style="margin-top: 15px;">
-                    <strong>Completed & Ongoing Coursework:</strong>
-                    <ul class="skill-list">
-                        <li>Algorithms & Data Structures</li>
-                        <li>Software Engineering</li>
-                        <li>Database Systems</li>
-                        <li>Web & Multimedia Technology</li>
-                    </ul>
-                </div>
-
-                <div style="margin-top: 15px;">
-                    <strong>Upcoming Modules (Pre-Summer 2026):</strong>
-                    <ul class="skill-list">
-                        <li>Operating Systems & Security</li>
-                        <li>Fundamentals of E-Commerce</li>
-                        <li>Web Information Systems</li>
-                        <li>Entrepreneurship</li>
-                    </ul>
+                <div style="margin-top: 20px; background: #f8fafc; padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--primary);">Upcoming Coursework (Pre-Summer 2026):</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="date">Operating Systems & Security</span>
+                        <span class="date">Web Information Systems</span>
+                        <span class="date">E-Commerce Fundamentals</span>
+                        <span class="date">Entrepreneurship</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>Technical Projects</h2>
+            <h2><i class="fas fa-code"></i> Technical Projects</h2>
             
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Bilingual E-Learning Platform</span>
-                    <span class="item-date">Current Project</span>
+            <div class="card">
+                <div class="header-row">
+                    <div class="title">Bilingual E-Learning Platform</div>
+                    <div class="date">In Development</div>
                 </div>
-                <div class="item-subtitle">Personal Project</div>
+                <div class="subtitle">Full Stack Developer</div>
                 <p>
-                    Designing and building a bilingual student platform to improve accessibility in education.
+                    Designing a modern student platform to bridge language gaps in education.
                 </p>
-                <ul class="skill-list">
-                    <li>Developed using <strong>Next.js</strong> for performance and SEO.</li>
-                    <li>Utilized <strong>Prisma</strong> for database schema and type-safe queries.</li>
-                    <li>Focusing on user experience (UX) and bilingual support (Arabic/English).</li>
+                <ul class="styled-list">
+                    <li><strong>Tech Stack:</strong> Next.js (React), Prisma ORM, PostgreSQL.</li>
+                    <li><strong>Key Features:</strong> Server-side rendering for performance, bilingual UI toggle (Arabic/English), and responsive dashboard design.</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
+            <h2><i class="fas fa-laptop-code"></i> Skills & Tools</h2>
+            <div class="skills-container">
+                <div class="card skill-group" style="margin-bottom: 0;">
                     <h3>Development</h3>
-                    <ul class="skill-list">
-                        <li>HTML5, CSS3, JavaScript</li>
+                    <ul class="styled-list">
+                        <li>JavaScript / TypeScript</li>
                         <li>Next.js & React</li>
-                        <li>SQL & Prisma</li>
-                        <li>Git Version Control</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>Prisma & SQL</li>
+                        <li>Git & GitHub</li>
                     </ul>
                 </div>
-                <div class="skill-category">
+                <div class="card skill-group" style="margin-bottom: 0;">
                     <h3>Languages</h3>
-                    <ul class="skill-list">
+                    <ul class="styled-list">
                         <li>Arabic (Native)</li>
                         <li>English (Professional)</li>
-                        <li>French (Learning)</li>
+                        <li>French (Beginner)</li>
                     </ul>
                 </div>
             </div>
         </section>
-        
+
         <footer>
-            <p>&copy; 2026 [Your Name]</p>
+            <p>&copy; 2026 Yousuf Al Sulti. All rights reserved.</p>
         </footer>
 
     </div>
