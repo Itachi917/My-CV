@@ -9,38 +9,20 @@
     
     <style>
         :root {
-            --primary: #1e293b;      /* Slate 800 */
-            --secondary: #3b82f6;    /* Blue 500 */
-            --accent: #0f172a;       /* Slate 900 */
-            --bg: #f8fafc;           /* Slate 50 */
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --bg: #f8fafc;
             --card-bg: #ffffff;
-            --text-main: #334155;    /* Slate 700 */
-            --text-light: #64748b;   /* Slate 500 */
-            --highlight-bg: #eff6ff; /* Blue 50 */
+            --text-main: #334155;
+            --text-light: #64748b;
             --border: #e2e8f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
+        .container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* --- Hero Section --- */
+        /* Header */
         header {
             text-align: center;
             margin-bottom: 50px;
@@ -48,205 +30,45 @@
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-radius: 16px;
             color: white;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
         }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        .tagline {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            font-weight: 400;
-            margin-bottom: 25px;
-        }
-
-        .contact-pills {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .pill {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .pill:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* --- General Layout --- */
-        section {
-            margin-bottom: 40px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 {
-            color: var(--primary);
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        /* --- Cards --- */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border-color: #cbd5e1;
-        }
-
-        /* Special Featured Card for CERN */
-        .card.featured {
-            background: var(--highlight-bg);
-            border: 1px solid #bfdbfe;
-            position: relative;
-            overflow: hidden;
-        }
+        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
+        .tagline { font-size: 1.1rem; color: #94a3b8; margin-bottom: 25px; }
         
-        .card.featured::before {
-            content: "FEATURED";
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--secondary);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 4px 12px;
-            border-bottom-left-radius: 8px;
+        .contact-pills { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .pill {
+            background: rgba(255, 255, 255, 0.1); padding: 8px 16px; border-radius: 50px;
+            text-decoration: none; color: white; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; gap: 8px; transition: all 0.2s;
         }
+        .pill:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
 
-        .header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-            flex-wrap: wrap;
-        }
+        /* Sections */
+        section { margin-bottom: 40px; }
+        h2 { color: var(--primary); font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        h2::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        .title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--primary);
+        .card {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;
+            padding: 25px; margin-bottom: 20px; transition: transform 0.2s;
         }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-color: #cbd5e1; }
 
-        .date {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-family: monospace;
-            background: #f1f5f9;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
+        .header-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; flex-wrap: wrap; }
+        .title { font-weight: 700; font-size: 1.1rem; color: var(--primary); }
+        .date { font-size: 0.85rem; color: var(--text-light); font-family: monospace; background: #f1f5f9; padding: 2px 8px; border-radius: 4px; }
+        .subtitle { font-weight: 500; color: var(--secondary); margin-bottom: 12px; }
 
-        .subtitle {
-            font-weight: 500;
-            color: var(--secondary);
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
+        ul.styled-list { list-style: none; padding-left: 5px; }
+        ul.styled-list li { position: relative; padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem; }
+        ul.styled-list li::before { content: "▹"; position: absolute; left: 0; color: var(--secondary); font-weight: bold; }
 
-        p {
-            color: var(--text-main);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .skill-group h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 10px; border-bottom: 2px solid var(--secondary); display: inline-block; }
 
-        /* --- Lists & Skills --- */
-        ul.styled-list {
-            list-style: none;
-            padding-left: 5px;
-        }
-
-        ul.styled-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-
-        ul.styled-list li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-group h3 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            border-bottom: 2px solid var(--secondary);
-            display: inline-block;
-            padding-bottom: 3px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            color: var(--text-light);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .container { padding: 0 15px; }
-            .header-row { flex-direction: column; }
-            .date { margin-top: 5px; }
-        }
+        footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.85rem; }
+        
+        @media (max-width: 600px) { h1 { font-size: 2rem; } .header-row { flex-direction: column; } .date { margin-top: 5px; } }
     </style>
 </head>
 <body>
@@ -255,40 +77,26 @@
         
         <header>
             <h1>Yousuf Al Sulti</h1>
-            <div class="tagline">IT Student | Next.js Developer | CERN Summer Student 2026</div>
+            <div class="tagline">IT Diploma Student | Full Stack Developer</div>
             
             <div class="contact-pills">
-                <a href="mailto:241579@students.su.edu.om" class="pill" title="Academic Email">
+                <a href="mailto:241579@students.su.edu.om" class="pill">
                     <i class="fas fa-university"></i> 241579@students.su.edu.om
                 </a>
-                <a href="mailto:asm977661@gmail.com" class="pill" title="Personal Email">
+                <a href="mailto:asm977661@gmail.com" class="pill">
                     <i class="fas fa-envelope"></i> asm977661@gmail.com
                 </a>
-                <a href="#" class="pill">
-                    <i class="fab fa-github"></i> GitHub
+                <a href="https://github.com/itachi917" class="pill">
+                    <i class="fab fa-github"></i> itachi917
                 </a>
             </div>
         </header>
 
         <section>
-            <h2><i class="fas fa-user-circle"></i> Professional Profile</h2>
+            <h2><i class="fas fa-user-circle"></i> Objective</h2>
             <div class="card">
                 <p style="margin-bottom: 0;">
-                    High-achieving Information Technology student at Sohar University (GPA 3.85) with a strong foundation in full-stack development. Selected to represent the university at CERN in 2026. Passionate about building scalable web applications using the Next.js ecosystem and committed to continuous learning in security and systems architecture.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-star"></i> Upcoming Participation</h2>
-            <div class="card featured">
-                <div class="header-row">
-                    <div class="title">CERN Summer Student Programme</div>
-                    <div class="date">Geneva | Summer 2026</div>
-                </div>
-                <div class="subtitle">Selected University Representative</div>
-                <p>
-                    Chosen through a competitive selection process at Sohar University to join the world's leading particle physics laboratory. The program involves working on advanced IT projects and attending lectures from global experts in science and computing.
+                    High-achieving Information Technology student (GPA 3.85) at Sohar University with a passion for software engineering and network architecture. Experienced in full-stack web development and network simulation. Eager to leverage strong academic performance and collaborative project experience in a challenging research internship environment.
                 </p>
             </div>
         </section>
@@ -299,41 +107,71 @@
             <div class="card">
                 <div class="header-row">
                     <div class="title">Diploma in Information Technology</div>
-                    <div class="date">Exp. 2027</div>
+                    <div class="date">Expected 2027</div>
                 </div>
                 <div class="subtitle">Sohar University, Oman</div>
                 <ul class="styled-list">
                     <li><strong>Cumulative GPA:</strong> 3.85 / 4.00</li>
-                    <li><strong>Academic Trajectory:</strong> Intending to pursue Bachelor's Degree (Exp. 2029)</li>
+                    <li><strong>Future Plan:</strong> Continuing to Bachelor's Degree (Expected 2029)</li>
                 </ul>
                 
                 <div style="margin-top: 20px; background: #f8fafc; padding: 15px; border-radius: 8px;">
-                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--primary);">Upcoming Coursework (Pre-Summer 2026):</div>
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--primary);">Key Coursework:</div>
                     <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="date">Algorithms & Data Structures</span>
                         <span class="date">Operating Systems & Security</span>
                         <span class="date">Web Information Systems</span>
-                        <span class="date">E-Commerce Fundamentals</span>
-                        <span class="date">Entrepreneurship</span>
+                        <span class="date">Database Systems</span>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <section>
+            <h2><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="card">
+                <div class="header-row">
+                    <div class="title">Cisco Certified Network Associate (CCNA)</div>
+                    <div class="date">Issued by Cisco</div>
+                </div>
+                <p style="margin-bottom:0; color: #64748b;">
+                    Demonstrated proficiency in network fundamentals, IP connectivity, and security fundamentals.
+                </p>
+            </div>
+        </section>
 
         <section>
-            <h2><i class="fas fa-code"></i> Technical Projects</h2>
+            <h2><i class="fas fa-code"></i> Projects & Research</h2>
             
             <div class="card">
                 <div class="header-row">
                     <div class="title">Bilingual E-Learning Platform</div>
-                    <div class="date">In Development</div>
+                    <div class="date">Personal Project</div>
                 </div>
-                <div class="subtitle">Full Stack Developer</div>
+                <div class="subtitle">Full Stack Web Application</div>
                 <p>
-                    Designing a modern student platform to bridge language gaps in education.
+                    Architecting a student-centric platform to facilitate bilingual education, solving accessibility challenges for non-native English speakers.
                 </p>
                 <ul class="styled-list">
-                    <li><strong>Tech Stack:</strong> Next.js (React), Prisma ORM, PostgreSQL.</li>
-                    <li><strong>Key Features:</strong> Server-side rendering for performance, bilingual UI toggle (Arabic/English), and responsive dashboard design.</li>
+                    <li><strong>Tech Stack:</strong> Next.js, Prisma ORM, PostgreSQL.</li>
+                    <li><strong>Focus:</strong> Server-side rendering, scalable database schema, and responsive UI.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="header-row">
+                    <div class="title">University Collaborative Projects</div>
+                    <div class="date">Academic Coursework</div>
+                </div>
+                <div class="subtitle">Team-based Technical Implementation</div>
+                <p>
+                    Successfully collaborated in diverse teams to deliver technical solutions across networking, software design, and programming.
+                </p>
+                <ul class="styled-list">
+                    <li><strong>Network Simulation:</strong> Designed and simulated complex network topologies using <strong>Cisco Packet Tracer</strong> and <strong>Huawei eNSP</strong>.</li>
+                    <li><strong>Software Architecture:</strong> Created detailed UML diagrams and system models using <strong>StarUML</strong>.</li>
+                    <li><strong>Web Development:</strong> Built a responsive website using HTML/CSS with custom animations.</li>
+                    <li><strong>Programming:</strong> Developed object-oriented applications using <strong>Java</strong>.</li>
                 </ul>
             </div>
         </section>
@@ -346,24 +184,32 @@
                     <ul class="styled-list">
                         <li>JavaScript / TypeScript</li>
                         <li>Next.js & React</li>
+                        <li>Java & OOP</li>
                         <li>HTML5 & CSS3</li>
-                        <li>Prisma & SQL</li>
-                        <li>Git & GitHub</li>
+                    </ul>
+                </div>
+                <div class="card skill-group" style="margin-bottom: 0;">
+                    <h3>Networking & Systems</h3>
+                    <ul class="styled-list">
+                        <li>Cisco Packet Tracer</li>
+                        <li>Huawei eNSP</li>
+                        <li>StarUML (System Modeling)</li>
+                        <li>Git & Version Control</li>
                     </ul>
                 </div>
                 <div class="card skill-group" style="margin-bottom: 0;">
                     <h3>Languages</h3>
                     <ul class="styled-list">
-                        <li>Arabic (Native)</li>
-                        <li>English (Professional)</li>
-                        <li>French (Beginner)</li>
+                        <li><strong>Arabic:</strong> Native</li>
+                        <li><strong>English:</strong> Professional</li>
+                        <li><strong>French:</strong> Beginner</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 Yousuf Al Sulti. All rights reserved.</p>
+            <p>&copy; 2026 Yousuf Al Sulti</p>
         </footer>
 
     </div>
