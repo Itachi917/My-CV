@@ -33,7 +33,7 @@
             padding: 20px;
         }
 
-        /* Header / Hero Section */
+        /* Header */
         header {
             background-color: var(--white);
             padding: 40px;
@@ -85,9 +85,17 @@
             display: inline-block;
         }
 
-        /* Experience & Education Items */
+        /* Items */
         .item {
             margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .item-header {
@@ -113,21 +121,10 @@
             color: #888;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-category h3 {
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
+        /* Lists */
         ul.skill-list {
             list-style: none;
+            margin-top: 10px;
         }
 
         ul.skill-list li::before {
@@ -141,30 +138,27 @@
         
         ul.skill-list li {
             padding-left: 1em;
+            margin-bottom: 5px;
         }
 
-        /* Upcoming Coursework Label */
-        .badge {
-            background-color: #e1f0fa;
-            color: var(--accent-color);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: 10px;
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
-        /* Footer */
+        .skill-category h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
         footer {
             text-align: center;
             padding: 20px;
             color: #888;
             font-size: 0.9rem;
-        }
-
-        @media (max-width: 600px) {
-            .item-header {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -174,9 +168,9 @@
         
         <header>
             <h1>[Your Name]</h1>
-            <div class="tagline">IT Student | Full Stack Developer | CERN Summer Student 2026</div>
+            <div class="tagline">IT Student | Full Stack Developer</div>
             <div class="contact-info">
-                <a href="mailto:your.email@example.com">your.email@example.com</a> |
+                <a href="mailto:your.email@example.com">Email</a> |
                 <a href="https://github.com/yourusername">GitHub</a> |
                 <a href="#">LinkedIn</a>
             </div>
@@ -185,11 +179,24 @@
         <section>
             <h2>Profile</h2>
             <p>
-                Highly motivated Information Technology diploma student at Sohar University with a <strong>3.85 GPA</strong>. 
-                Passionate about web development with practical experience in the <strong>Next.js</strong> ecosystem. 
-                Selected to represent the university at the prestigious <strong>CERN Summer Student Program 2026</strong>. 
-                Dedicated to building efficient, bilingual digital solutions and expanding knowledge in system security and e-commerce.
+                Dedicated Information Technology student at Sohar University with a current <strong>GPA of 3.85</strong>. 
+                Passionate about web development, specifically within the <strong>Next.js</strong> ecosystem. 
+                Currently preparing for upcoming participation in the CERN Summer Student Programme after being selected by the university.
             </p>
+        </section>
+
+        <section>
+            <h2>Upcoming Participation</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">CERN Summer Student Programme 2026</span>
+                    <span class="item-date">Summer 2026</span>
+                </div>
+                <div class="item-subtitle">Selected Representative</div>
+                <p>
+                    Chosen by Sohar University to participate in the upcoming summer program at CERN (Geneva), focusing on IT and scientific computing.
+                </p>
+            </div>
         </section>
 
         <section>
@@ -198,15 +205,27 @@
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Diploma in Information Technology</span>
-                    <span class="item-date">Expected Graduation: [Year]</span>
+                    <span class="item-date">Expected 2027</span>
                 </div>
                 <div class="item-subtitle">Sohar University, Oman</div>
                 <p><strong>GPA:</strong> 3.85 / 4.00</p>
-                <p><strong>Key Coursework:</strong> Algorithms & Data Structures, Software Engineering, Database Systems, Web & Multimedia Technology.</p>
+                <p style="margin-top: 5px; color: #555;">
+                    <em>Plan to pursue Bachelor's Degree (Expected Graduation: 2029)</em>
+                </p>
                 
                 <div style="margin-top: 15px;">
-                    <strong>Upcoming Modules (Pre-CERN 2026):</strong>
-                    <ul class="skill-list" style="margin-top: 5px;">
+                    <strong>Completed & Ongoing Coursework:</strong>
+                    <ul class="skill-list">
+                        <li>Algorithms & Data Structures</li>
+                        <li>Software Engineering</li>
+                        <li>Database Systems</li>
+                        <li>Web & Multimedia Technology</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <strong>Upcoming Modules (Pre-Summer 2026):</strong>
+                    <ul class="skill-list">
                         <li>Operating Systems & Security</li>
                         <li>Fundamentals of E-Commerce</li>
                         <li>Web Information Systems</li>
@@ -217,71 +236,50 @@
         </section>
 
         <section>
-            <h2>Projects</h2>
+            <h2>Technical Projects</h2>
             
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">Bilingual E-Learning Platform</span>
-                    <span class="item-date">2026</span>
+                    <span class="item-date">Current Project</span>
                 </div>
-                <div class="item-subtitle">Full Stack Developer</div>
+                <div class="item-subtitle">Personal Project</div>
                 <p>
-                    Developing a comprehensive student platform designed to facilitate bilingual education.
+                    Designing and building a bilingual student platform to improve accessibility in education.
                 </p>
-                <ul class="skill-list" style="margin-top: 10px;">
-                    <li>Built using <strong>Next.js</strong> for server-side rendering and performance.</li>
-                    <li>Integrated <strong>Prisma</strong> ORM for efficient database management.</li>
-                    <li>Focus on scalable architecture and user-friendly interface design.</li>
+                <ul class="skill-list">
+                    <li>Developed using <strong>Next.js</strong> for performance and SEO.</li>
+                    <li>Utilized <strong>Prisma</strong> for database schema and type-safe queries.</li>
+                    <li>Focusing on user experience (UX) and bilingual support (Arabic/English).</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>Honors & Awards</h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">CERN Summer Student Program Nominee</span>
-                    <span class="item-date">Summer 2026</span>
-                </div>
-                <p>
-                    Selected by Sohar University as a representative for the CERN summer program, a highly competitive opportunity to work alongside leading researchers in Geneva.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Technical Skills</h2>
+            <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Languages & Core</h3>
+                    <h3>Development</h3>
                     <ul class="skill-list">
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript / TypeScript</li>
-                        <li>SQL</li>
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li>Next.js & React</li>
+                        <li>SQL & Prisma</li>
+                        <li>Git Version Control</li>
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Frameworks & Tools</h3>
-                    <ul class="skill-list">
-                        <li>Next.js</li>
-                        <li>Prisma</li>
-                        <li>Git & GitHub</li>
-                        <li>Android Development</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Languages (Spoken)</h3>
+                    <h3>Languages</h3>
                     <ul class="skill-list">
                         <li>Arabic (Native)</li>
                         <li>English (Professional)</li>
-                        <li>French (Beginner)</li>
+                        <li>French (Learning)</li>
                     </ul>
                 </div>
             </div>
         </section>
         
         <footer>
-            <p>&copy; 2026 [Your Name] - Hosted on GitHub Pages</p>
+            <p>&copy; 2026 [Your Name]</p>
         </footer>
 
     </div>
