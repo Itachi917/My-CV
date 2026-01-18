@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | IT Student & Developer</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin: 0 10px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sections */
+        section {
+            background: var(--white);
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* Experience & Education Items */
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: #666;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        ul.skill-list {
+            list-style: none;
+        }
+
+        ul.skill-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        ul.skill-list li {
+            padding-left: 1em;
+        }
+
+        /* Upcoming Coursework Label */
+        .badge {
+            background-color: #e1f0fa;
+            color: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .item-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>[Your Name]</h1>
+            <div class="tagline">IT Student | Full Stack Developer | CERN Summer Student 2026</div>
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com">your.email@example.com</a> |
+                <a href="https://github.com/yourusername">GitHub</a> |
+                <a href="#">LinkedIn</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Profile</h2>
+            <p>
+                Highly motivated Information Technology diploma student at Sohar University with a <strong>3.85 GPA</strong>. 
+                Passionate about web development with practical experience in the <strong>Next.js</strong> ecosystem. 
+                Selected to represent the university at the prestigious <strong>CERN Summer Student Program 2026</strong>. 
+                Dedicated to building efficient, bilingual digital solutions and expanding knowledge in system security and e-commerce.
+            </p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Diploma in Information Technology</span>
+                    <span class="item-date">Expected Graduation: [Year]</span>
+                </div>
+                <div class="item-subtitle">Sohar University, Oman</div>
+                <p><strong>GPA:</strong> 3.85 / 4.00</p>
+                <p><strong>Key Coursework:</strong> Algorithms & Data Structures, Software Engineering, Database Systems, Web & Multimedia Technology.</p>
+                
+                <div style="margin-top: 15px;">
+                    <strong>Upcoming Modules (Pre-CERN 2026):</strong>
+                    <ul class="skill-list" style="margin-top: 5px;">
+                        <li>Operating Systems & Security</li>
+                        <li>Fundamentals of E-Commerce</li>
+                        <li>Web Information Systems</li>
+                        <li>Entrepreneurship</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Bilingual E-Learning Platform</span>
+                    <span class="item-date">2026</span>
+                </div>
+                <div class="item-subtitle">Full Stack Developer</div>
+                <p>
+                    Developing a comprehensive student platform designed to facilitate bilingual education.
+                </p>
+                <ul class="skill-list" style="margin-top: 10px;">
+                    <li>Built using <strong>Next.js</strong> for server-side rendering and performance.</li>
+                    <li>Integrated <strong>Prisma</strong> ORM for efficient database management.</li>
+                    <li>Focus on scalable architecture and user-friendly interface design.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Honors & Awards</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">CERN Summer Student Program Nominee</span>
+                    <span class="item-date">Summer 2026</span>
+                </div>
+                <p>
+                    Selected by Sohar University as a representative for the CERN summer program, a highly competitive opportunity to work alongside leading researchers in Geneva.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages & Core</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Next.js</li>
+                        <li>Prisma</li>
+                        <li>Git & GitHub</li>
+                        <li>Android Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages (Spoken)</h3>
+                    <ul class="skill-list">
+                        <li>Arabic (Native)</li>
+                        <li>English (Professional)</li>
+                        <li>French (Beginner)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 [Your Name] - Hosted on GitHub Pages</p>
+        </footer>
+
+    </div>
+</body>
+</html>
